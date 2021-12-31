@@ -95,7 +95,6 @@ public class D3MapDemo {
         options.put(COMMONJS_REQUIRE_NAME, "true");
         options.put(COMMONJS_REQUIRE_CWD_NAME, DEMO_ROOT);
         options.put("js.global-property", "true");
-        System.out.println("Working Directory = " + System.getProperty("user.dir"));
         options.put("js.commonjs-global-properties", DEMO_ROOT + "/globalConfig.js");
         options.put("engine.WarnInterpreterOnly", "false");
         options.put("js.top-level-await", "true");
