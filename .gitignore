@@ -1,0 +1,4 @@
+# Project exclude paths
+/out/
+/src/main/resources/node_modules/
+/target/
