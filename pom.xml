@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>groupId</groupId>
-    <artifactId>D3MapJar</artifactId>
+    <artifactId>D3MapMaven</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
         <dependency>
             <groupId>org.graalvm</groupId>
-            <artifactId>example-app</artifactId>
+            <artifactId>graaljs</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${basedir}/lib/graaljs.jar</systemPath>
