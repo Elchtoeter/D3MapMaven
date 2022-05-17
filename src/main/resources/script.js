@@ -1,3 +1,4 @@
+this.global = require("./globalConfig");
 const jsdom =  require("jsdom");
 const { JSDOM } = jsdom;
 const austria = require('./bezirke_995_geo.json');

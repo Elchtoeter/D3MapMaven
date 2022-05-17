@@ -17,6 +17,7 @@ import static com.oracle.truffle.js.runtime.JSContextOptions.COMMONJS_REQUIRE_NA
 
 public class D3MapDemo {
 
+    private static final int SERVER_PORT = 8000;
     private static String DEMO_ROOT;
 
     static {
@@ -82,12 +83,22 @@ public class D3MapDemo {
             } catch (Throwable e) {
                 response.send(e.toString());
             }
+        }).get("/",(request,response)->{
+            try {
+                response.headers().contentType(MediaType.TEXT_HTML);
+                response.status(200);
+                String html = "<!DOCTYPE html>" + "<html><body>" +
+                        "<h1>NPM module loading demo</h1></body></html>";
+                response.send(html);
+            } catch (Throwable e) {
+                response.send(e.toString());
+            }
         }).build();
-        var webServer = WebServer.builder().port(8000)
+        var webServer = WebServer.builder().port(SERVER_PORT)
                 .routing(routing)
                 .build();
         webServer.start();
-        System.out.println("INFO: D3 Map server started at: http://localhost:" + webServer.port() + "\n");
+        System.out.println("INFO: D3 Map server started at: http://localhost:" + SERVER_PORT + "\n");
     }
 
     private static HashMap<String, String> setOptions() {
@@ -95,8 +106,6 @@ public class D3MapDemo {
         options.put(COMMONJS_REQUIRE_NAME, "true");
         options.put(COMMONJS_REQUIRE_CWD_NAME, DEMO_ROOT);
         options.put("js.global-property", "true");
-        System.out.println("Working Directory = " + System.getProperty("user.dir"));
-        options.put("js.commonjs-global-properties", DEMO_ROOT + "/globalConfig.js");
         options.put("engine.WarnInterpreterOnly", "false");
         options.put("js.top-level-await", "true");
         options.put("js.commonjs-core-modules-replacements",
