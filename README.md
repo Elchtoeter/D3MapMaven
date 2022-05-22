@@ -21,4 +21,8 @@ The data visualisation that is being generated shows a map of Austrias political
 
 ### Changes to the GraalVM
 
-To run the project one needs to apply a single change to the module resolving algorithm used in the GraalVM.
+As of May 2022 no changes to the GraalVM/graaljs are needed when building https://github.com/oracle/graaljs
+When using that build the server can be started with  mvn compile exec:java
+This will start the Netty web server used by Helidon. The service can then be reached by opening a browser and accessing
+http://localhost:8000/ampel/<year>/<month>/<day>
+where valid values for the date are between 2020-02-26 and 2021-12-08.
